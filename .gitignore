@@ -1,0 +1,163 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+/build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# env files (can opt-in for committing if needed)
+.env*
+.env.local
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Gradle files
+.gradle/
+build/
+**/build/
+gradle-app.setting
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+.gradletasknamecache
+
+# Compiled class files
+*.class
+back/build/
+**/build/classes/
+
+# Next.js build output
+.next/
+front/.next/
+front/out/
+front/node_modules/
+front/.vercel
+front/build
+front/npm-debug.log*
+front/yarn-debug.log*
+front/yarn-error.log*
+front/.pnpm-debug.log*
+
+# Next.js static files
+front/_next/
+front/next/static/
+front/_static/
+*.woff2
+*.webpack.hot-update.json
+
+# Node.js dependencies
+node_modules/
+front/node_modules/
+back/node_modules/
+**/node_modules/
+
+
+
+HELP.md
+/back/.gradle
+/back/build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+/back/bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### IntelliJ IDEA ###
+/back/.idea
+*.iws
+*.iml
+*.ipr
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/front/node_modules
+/front/.pnp
+.pnp.js
+
+# testing
+/front/coverage
+
+# production
+/front/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+/back/logs/
+*.log
+
+
+
+# Next.js cache
+front/.next/cache/
+**/front/.next/cache/
+**/.next/cache/
+front/.next/cache/webpack/
+*.pack.gz
+*.pack.gz.old
+
+# Next.js media and font files
+**/.next/static/media/
+front/.next/static/media/
+*.woff2

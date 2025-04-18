@@ -1,0 +1,460 @@
+// DAQUV COMMON.SCSS
+// Date - 2023-04-28
+// Version - 2.0
+
+///////////////////////////////////////////////////////////////////////////
+// WIDTH - 가로 값 정의
+// Width % (+)
+@for $i from 0 through 100 {
+    .wp-#{$i} {
+        width: #{$i}#{"%"} !important;
+    }
+    .wp-#{$i}-min {
+        min-width: #{$i}#{"%"} !important;
+    }
+    .wp-#{$i}-max {
+        max-width: #{$i}#{"%"} !important;
+    }
+}
+// Width % (-)
+@for $i from -100 through -1 {
+    .wp-m-#{-$i} {
+        width: -#{-$i}#{"%"} !important;
+    }
+    .wp-m-#{-$i}-min {
+        min-width: -#{-$i}#{"%"} !important;
+    }
+    .wp-m-#{-$i}-max {
+        max-width: -#{-$i}#{"%"} !important;
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+// HEIGHT - 세로 값 정의
+// height % (+)
+@for $i from 0 through 100 {
+    .hp-#{$i} {
+        height: #{$i}#{"%"} !important;
+    }
+    .hp-#{$i}-min {
+        min-height: #{$i}#{"%"} !important;
+    }
+    .hp-#{$i}-max {
+        max-height: #{$i}#{"%"} !important;
+    }
+}
+// height % (-)
+@for $i from -100 through -1 {
+    .hp-m-#{-$i} {
+        height: -#{-$i}#{"%"} !important;
+    }
+    .hp-m-#{-$i}-min {
+        min-height: -#{-$i}#{"%"} !important;
+    }
+    .hp-m-#{-$i}-max {
+        max-height: -#{-$i}#{"%"} !important;
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+// PADDING - 정의
+@for $i from 0 through 1000 {
+    .p-#{$i} {
+        padding: #{$i/10}#{"rem"} !important;
+    }
+    .pl-#{$i} {
+        padding-left: #{$i/10}#{"rem"} !important;
+    }
+    .pt-#{$i} {
+        padding-top: #{$i/10}#{"rem"} !important;
+    }
+    .pr-#{$i} {
+        padding-right: #{$i/10}#{"rem"} !important;
+    }
+    .pb-#{$i} {
+        padding-bottom: #{$i/10}#{"rem"} !important;
+    }
+}
+@for $i from -1000 through -1 {
+    .p-m-#{-$i} {
+        padding: -#{-$i/10}#{"rem"} !important;
+    }
+    .pl-m-#{-$i} {
+        padding-left: -#{-$i/10}#{"rem"} !important;
+    }
+    .pt-m-#{-$i} {
+        padding-top: -#{-$i/10}#{"rem"} !important;
+    }
+    .pr-m-#{-$i} {
+        padding-right: -#{-$i/10}#{"rem"} !important;
+    }
+    .pb-m-#{-$i} {
+        padding-bottom: -#{-$i/10}#{"rem"} !important;
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+// MARGIN - 정의
+@for $i from 0 through 1000 {
+    .m-#{$i} {
+        margin: #{$i/10}#{"rem"} !important;
+    }
+    .ml-#{$i} {
+        margin-left: #{$i/10}#{"rem"} !important;
+    }
+    .mt-#{$i} {
+        margin-top: #{$i/10}#{"rem"} !important;
+    }
+    .mr-#{$i} {
+        margin-right: #{$i/10}#{"rem"} !important;
+    }
+    .mb-#{$i} {
+        margin-bottom: #{$i/10}#{"rem"} !important;
+    }
+}
+@for $i from -1000 through -1 {
+    .m-m-#{-$i} {
+        margin: -#{-$i/10}#{"rem"} !important;
+    }
+    .ml-m-#{-$i} {
+        margin-left: -#{-$i/10}#{"rem"} !important;
+    }
+    .mt-m-#{-$i} {
+        margin-top: -#{-$i/10}#{"rem"} !important;
+    }
+    .mr-m-#{-$i} {
+        margin-right: -#{-$i/10}#{"rem"} !important;
+    }
+    .mb-m-#{-$i} {
+        margin-bottom: -#{-$i/10}#{"rem"} !important;
+    }
+}
+
+///////////////////////////////////////////////////////////////////////////
+// DISPLAY - 속성 정의
+.dis-none{
+    display: none;
+}
+.dis-inline{
+    display: inline;
+}
+.dis-inline-block{
+    display: inline-block;
+}
+.dis-block{
+    display: block;
+}
+.dis-table{
+    display: table;
+}
+.dis-flex{
+    display: flex;
+}
+.dis-inline-flex{
+    display: inline-flex;
+}
+///////////////////////////////////////////////////////////////////////////
+// FLEX - 속성 정의
+// Flex - Direction
+.flex-d-row{
+    flex-direction: row; // Default
+}
+.flex-d-row-r{
+    flex-direction: row-reverse;
+}
+.flex-d-column{
+    flex-direction: column;
+}
+.flex-d-column-r{
+    flex-direction: column-reverse;
+}
+// Flex - Wrap
+.flex-w{
+    flex-wrap: wrap; // Default
+}
+.flex-nw{
+    flex-wrap: nowrap;
+}
+.flex-wr{
+    flex-wrap: wrap-reverse;
+}
+// Flex - Justifiy Content
+.flex-j-start{
+    justify-content: flex-start; // Default
+}
+.flex-j-end{
+    justify-content: flex-end;
+}
+.flex-j-center{
+    justify-content: center;
+}
+.flex-j-between{
+    justify-content: space-between;
+}
+.flex-j-around{
+    justify-content: space-around;
+}
+// Flex - Align Content
+.flex-ac-stretch{
+    align-content: stretch; // Default
+}
+.flex-ac-start{
+    align-content: flex-start;
+}
+.flex-ac-end{
+    align-content: flex-end;
+}
+.flex-ac-center{
+    align-content: center;
+}
+.flex-ac-between{
+    align-content: space-between;
+}
+.flex-ac-around{
+    align-content: space-around;
+}
+// Flex - Align Items
+.flex-ai-stretch{
+    align-items: stretch; // Default
+}
+.flex-ai-start{
+    align-items: flex-start;
+}
+.flex-ai-end{
+    align-items: flex-end;
+}
+.flex-ai-center{
+    align-items: center;
+}
+// Flex - Order
+@for $idx from 1 through 10 {
+    .flex-order#{$idx} {
+        order: $idx;
+    }
+}
+///////////////////////////////////////////////////////////////////////////
+// FLOAT - 속성 정의
+.f-none{
+    float:none; // Default
+}
+.f-left{
+    float:left;
+}
+.f-right{
+    float:right;
+}
+///////////////////////////////////////////////////////////////////////////
+// POSITION - 속성 정의
+.posit-static{
+    position: static; // Default
+}
+.posit-relative{
+    position: relative;
+}
+.posit-absolute{
+    position: absolute;
+}
+.posit-fixed{
+    position: fixed;
+}
+///////////////////////////////////////////////////////////////////////////
+// TEXT - 속성 정의
+.text-left{
+    text-align: left !important;
+}
+.text-center{
+    text-align: center !important;
+}
+.text-right{
+    text-align: right !important;
+}
+// Text Decoration
+.text-deco-none{
+    text-decoration: none !important;
+}
+.text-deco-underline{
+    text-decoration: underline !important;
+}
+///////////////////////////////////////////////////////////////////////////
+// WORD BREAK - 속성 정의
+.word-normal{
+    word-break: normal;
+}
+.word-keep{
+    word-break: keep-all;
+}
+///////////////////////////////////////////////////////////////////////////
+// FONT - 속성 정의
+// Font Size
+@for $idx from 0 through 100 {
+    .font-size#{$idx} {
+        font-size: #{$idx / 10}rem !important;
+    }
+}
+// Font Weight
+.font-bold{
+    font-weight: 700 !important;
+}
+.font-medium{
+    font-weight: 500 !important;
+}
+.font-normal{
+    font-weight: 400 !important;
+}
+.font-light{
+    font-weight: 300 !important;
+}
+///////////////////////////////////////////////////////////////////////////
+// VERTICAL ALIGN - 속성 정의
+.v-align-baseline{
+    vertical-align: baseline; // Default
+}
+.v-align-top{
+    vertical-align: top;
+}
+.v-align-middle{
+    vertical-align: middle;
+}
+.v-align-bottom{
+    vertical-align: bottom;
+}
+///////////////////////////////////////////////////////////////////////////
+// TEXT ELLIPSIS - 속성 정의
+// 말줄임표 1줄 - 사용시 부모에 가로 값 있어야함.
+.text-ellipsis{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+// 말줄임표 2줄 - 사용시 부모에 가로 값 있어야함.
+.text-ellipsis2{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+///////////////////////////////////////////////////////////////////////////
+// HR - 속성 정의
+hr{
+    border-top:1px solid #ddd;
+    margin:2px 0;
+}
+///////////////////////////////////////////////////////////////////////////
+// HIDDEN, HIDEN - 속성 정의
+.hidden{
+    display: none !important;
+}
+.hide {
+    display: none;
+}
+///////////////////////////////////////////////////////////////////////////
+// overflow  - 속성 정의
+.overflow-height{
+    overflow-y: auto;
+}
+.overflow-width{
+    overflow-x: auto;
+}
+
+///////////////////////////////////////////////////////////////////////////
+// padding(-500~500)
+@for $i from 0 through 500 {
+    .p-#{$i} {
+        padding: #{calc($i/10)}#{"rem"} !important;
+    }
+    .pl-#{$i} {
+        padding-left: #{calc($i/10)}#{"rem"} !important;
+    }
+    .pt-#{$i} {
+        padding-top: #{calc($i/10)}#{"rem"} !important;
+    }
+    .pr-#{$i} {
+        padding-right: #{calc($i/10)}#{"rem"} !important;
+    }
+    .pb-#{$i} {
+        padding-bottom: #{calc($i/10)}#{"rem"} !important;
+    }
+    .plr-#{$i} {
+        padding-left: #{calc($i/10)}#{"rem"} !important;
+        padding-right: #{calc($i/10)}#{"rem"} !important;
+    }
+    .ptb-#{$i} {
+        padding-top: #{calc($i/10)}#{"rem"} !important;
+        padding-bottom: #{calc($i/10)}#{"rem"} !important;
+    }
+}
+@for $i from -500 through -1 {
+    .p-m-#{-$i} {
+        padding: #{calc($i/10)}#{"rem"} !important;
+    }
+    .pl-m-#{-$i} {
+        padding-left: #{calc($i/10)}#{"rem"} !important;
+    }
+    .pt-m-#{-$i} {
+        padding-top: #{calc($i/10)}#{"rem"} !important;
+    }
+    .pr-m-#{-$i} {
+        padding-right: #{calc($i/10)}#{"rem"} !important;
+    }
+    .pb-m-#{-$i} {
+        padding-bottom: #{calc($i/10)}#{"rem"} !important;
+    }
+    .plr-m-#{-$i} {
+        padding-left: #{calc($i/10)}#{"rem"} !important;
+        padding-right: #{calc($i/10)}#{"rem"} !important;
+    }
+    .ptb-m-#{-$i} {
+        padding-top: #{calc($i/10)}#{"rem"} !important;
+        padding-bottom: #{calc($i/10)}#{"rem"} !important;
+    }
+}
+
+// margin(-500~500)
+@for $i from 0 through 500 {
+    .m-#{$i} {
+        margin: #{calc($i/10)}#{"rem"} !important;
+    }
+    .ml-#{$i} {
+        margin-left: #{calc($i/10)}#{"rem"} !important;
+    }
+    .mt-#{$i} {
+        margin-top: #{calc($i/10)}#{"rem"} !important;
+    }
+    .mr-#{$i} {
+        margin-right: #{calc($i/10)}#{"rem"} !important;
+    }
+    .mb-#{$i} {
+        margin-bottom: #{calc($i/10)}#{"rem"} !important;
+    }
+    .mlr-#{$i} {
+        margin-left: #{calc($i/10)}#{"rem"} !important;
+        margin-right: #{calc($i/10)}#{"rem"} !important;
+    }
+    .mtb-#{$i} {
+        margin-top: #{calc($i/10)}#{"rem"} !important;
+        margin-bottom: #{calc($i/10)}#{"rem"} !important;
+    }
+}
+@for $i from -500 through -1 {
+    .m-m-#{-$i} {
+        margin: #{calc($i/10)}#{"rem"} !important;
+    }
+    .ml-m-#{-$i} {
+        margin-left: #{calc($i/10)}#{"rem"} !important;
+    }
+    .mt-m-#{-$i} {
+        margin-top: #{calc($i/10)}#{"rem"} !important;
+    }
+    .mr-m-#{-$i} {
+        margin-right: #{calc($i/10)}#{"rem"} !important;
+    }
+    .mb-m-#{-$i} {
+        margin-bottom: #{calc($i/10)}#{"rem"} !important;
+    }
+    .mlr-m-#{-$i} {
+        margin-left: #{calc($i/10)}#{"rem"} !important;
+        margin-right: #{calc($i/10)}#{"rem"} !important;
+    }
+    .mtb-m-#{-$i} {
+        margin-top: #{calc($i/10)}#{"rem"} !important;
+        margin-bottom: #{calc($i/10)}#{"rem"} !important;
+    }
+}

@@ -1,0 +1,257 @@
+// Reset (ver.0.2.1)(LastUpdate: 2023.04.14)
+
+// < 사용시 주의사항 >
+// * head 태그에 입력하는 순서 [기본.css](ex.bootstrap.css, jquery-ui.css) > reset.css > common.css > [작업.css] 을 권장함
+
+// < HTML 기본 초기화 >
+// * font의 경우 reset에서는 inherit을 기본 사용. (폰트의 변경시 작업할 css에서 변경하기)
+// * font-size의 경우 100% 사이즈로 기본 사용. (font-size의 초기 세팅이나 변경 필요시 작업할 css에서 변경하기)
+// * vertical-align의 경우 middle 기본 사용. - flex나 grid와 같은 레이아웃 기술에 효과적입니다. 일관적으로 수직정렬하기 좋음.
+// * dl, dt, dd, ol, ul, li 의 경우 list-style 은 reset에서 제거하지 않음. (Editor 혼합 사용시 문제발생)
+// * p, span, h1, h2, h3, h4, h5, h6, strong, b, u, i 와 같이 color 값은 reset에서 제거하지 않음. (Editor 혼합 사용시 문제발생)
+// * 전체에 border를 0으로 초기화하는 이유는 border-width 값이 medium으로 초기화 되기 때문(캐스케이딩 과정에서 문제가 발생할 소지가 있기 때문에 none대신 0 사용 권장)
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary, textarea,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+    background: transparent;
+	vertical-align: middle;
+}
+
+// * box-sizing의 W3C에서도 권장하는 방식이며, 선택자(*)는 가급적 지양되는 관행이나 Bootstrap4의 경우 해당 코드를 사용하는 점을 고려해 초기화함.
+// * box-sizing은 혼동을 피하기 위해 속성값은 border-box를 기준으로 초기화함.
+// * 여기서 box-sizing은 선택자(*)에 바로 border-box속성값을 부여하지 않고 html 태그에 값을 넣고 상속을 받는 방법으로 초기화함.
+// * word-break의 기본 속성은 글자 단위를 기준으로 한다. 단, 필요시 각각 개별적으로 부여할것.
+*, *:before, *:after {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    word-break: break-all; 
+}
+
+
+// * 추가사항 : 별도로 html, body에 width:100%를 설정하는데 페이지를 꽉채우기 위해서이고, 일반적으로 
+html {
+    font-size: 62.5%; // HTML이 62.5% 인 경우는 1rem의 기본을 10px로 맞춰 rem단위의 계산 편의성을 위해서 맞춰 구성한다. *(ex. 1rem = 10px, 1.1rem = 11px)
+    min-height: 100vh; // 브라우저 화면에 높이에 맞춰 최소 높이가 설정되기 때문에, 화면이 작아져도 컨텐츠가 깨지지 않음.
+    height: 100%; // 기본값이 auto이기 때문에  부모요소의 높이 기준으로 자식요소의 높이를 100%로 설정하기 위해서.
+}
+
+body {
+	line-height: 1; // * line-height 1을 부여하는 이유는 폰트사이즈만큼 높이를 가진다는 의미 (높이 값 필수 초기화)
+    height: 100%; /// 통상 html,body { height:100% } 형식으로 많이 구성한다. 위에 height값에 동일하게 적용.
+}
+
+// * a 태그의 경우 기본이 color 값이 파란색이기 때문에 inherit로 초기화 함. (Ediotr에서 HyperLink의 색상 필요시 Editor의 기능에 색상변경 권장)
+// * a 태그의 밑줄 또한 기본 초기값은 none 제거 형태.
+a{
+    color: inherit;
+    text-decoration: none;
+    -webkit-text-decoration-skip: objects; // 이미지나 영상에서 같은 객체 요소 위에 텍스트 스타일이 표시되는것을 방지하는데 사용    
+    &:active, &:focus, &:hover {
+        text-decoration: none; // 효과들에 밑줄 초기화
+    }
+}
+
+// 테이블 기본 초기화
+table {
+	border-spacing: 0;
+	border-collapse: collapse;
+}
+
+// Image 태그 width 제한 및 기본 초기화
+img {
+    max-width: 100%;
+    height: auto;
+    border-style: none;
+}
+
+// Textarea 태그 기본 초기화
+textarea{
+    width: 100%;
+    resize: none; // textarea의 크기를 조절해주는 요소를 막기(웹에서는 대체로 허용하지만 모바일에서는 막아야함)
+    appearance: none; // 브라우저의 기본 UI가 적용되지 않도록 초기화해줘야함
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+// 인용구 관련 기본 초기화
+blockquote, q {
+	quotes: none;
+    &::before{
+        content: '';
+        content: none;
+    }
+    &::after{
+        content: '';
+        content: none;
+    }
+}
+
+// List Style 관련 초기화
+li, menu {
+    list-style: none;
+}
+
+// Label은 기본적으로 커서 이벤트를 가지고있음으로 설계 필요시 reset이 아닌 프로젝트 css에서 초기화해줌
+label {
+    cursor: pointer;
+}
+
+// 테이블 기본 초기화
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    table-layout: auto; // 기본은 auto이고, 필요시 fixed를 이용해서 셀너비를 고정시켜 사용(속도문제 발생시)
+}
+
+// 캡션은 기본적으로 좋은 UX를 제공하지 않기 때문에 초기화함.
+// 테이블 위에 제목 태그를 활용해서 설계하는것이 원칙.
+caption {
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+// 버튼 초기화
+button {
+    padding: 0;
+    margin: 0;
+    overflow: visible;
+    cursor: pointer;
+    text-transform: none; // 버튼의 텍스트가 대문자로 변환되지 않도록 하는 초기화 css
+    border: none;
+    background: none;
+    color: inherit;
+    outline: none;
+    &:focus{
+        outline: none;
+    }
+}
+
+// Input 초기화
+input {
+    overflow: visible;
+    border: none;
+    &:focus{
+        outline: none;
+    }
+        
+    &:disabled{
+        -webkit-text-fill-color: inherit;
+        cursor: not-allowed; // 해당 필드 클릭시 커서 모양이 바뀌어서 입력이 불가능하다는 것을 표시
+        pointer-events: none; // 클릭이나 포인터 이벤트를 발생시키지 않도록 함.(비활성화)
+    }
+    &:read-only {
+        -webkit-text-fill-color: inherit;
+        cursor: not-allowed; // 해당 필드 클릭시 커서 모양이 바뀌어서 입력이 불가능하다는 것을 표시
+        pointer-events: none; // 클릭이나 포인터 이벤트를 발생시키지 않도록 함.(비활성화)
+    }
+}
+// Input Readonly
+input[readonly] {
+    -webkit-text-fill-color: inherit;
+    cursor: normal; // 해당 필드 클릭시 커서 모양이 바뀌어서 입력이 불가능하다는 것을 표시
+    pointer-events: none; // 클릭이나 포인터 이벤트를 발생시키지 않도록 함.(비활성화)
+  }
+
+input[type="text"], input[type="password"], input[type="tel"],
+input[type="email"], input[type="number"], input[type="date"],
+input[type="search"] {
+    flex: 1; // 균등하게 초기화
+    width: 100%;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0;
+    letter-spacing: 0;
+}
+input[type="date"]{
+    &::-webkit-calendar-picker-indicator {
+        color: transparent;
+        background: none;
+    }
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+// 웹킷 기반 브라우저의 placeholder 값 초기화
+::-webkit-input-placeholder {
+    text-align: left;
+}
+input[type="tel"]{
+    &::placeholder {
+        text-align: left;
+    }
+}
+
+// input 요소에 background가 자동적으로 브라우져상에 자동완성으로 입력되면 깔리는데 그걸 제거하는 css
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	-webkit-text-fill-color: #000;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+    box-shadow: 0 0 0px 1000px #fff inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+// 라벨과 함께 사용될 때 스타일을 적용할 수 있도록 해당 input요소를 볼수 없도록 초기화
+input[type="checkbox"], input[type="radio"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+}
+
+// 셀렉트 Input 초기화
+select {
+    width: 100%;
+    border: none;
+    text-transform: none;
+    &:disabled {
+        transition: all 0.4s ease;
+        -webkit-text-fill-color: inherit;
+    }
+    &:focus {
+        transition: all 0.4s ease;
+    }
+}
+
+// < HTML5 기본 초기화 >
+// * HTML5의 기본 의미요소는 display: block을 기준으로 함.
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+
+

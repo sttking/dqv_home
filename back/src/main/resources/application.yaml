@@ -1,0 +1,170 @@
+spring:
+  profiles:
+    active: dev  # 🔥 여기에 추가
+    group:
+      "local": "local"
+      "dev": "dev"
+      "prod": "prod"
+
+# API 설정
+api:
+  version: v1
+  prefix: /api/v1
+---
+spring:
+  config:
+    activate:
+      on-profile: local
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://dev.daquv.com:3306/homepage?autoReconnect=True&useSSL=false&characterEncoding=UTF-8&serverTimezone=KST&allowPublicKeyRetrieval=true
+    username: admin
+    password: daquv123!*()
+    max-active: 5
+    max-idle: 5
+    min-idle: 1
+    test-while-idle: true
+    time-between-eviction-runs-millis: 60000
+    validation-query: SELECT 1
+  jpa:
+    database: mysql
+    show-sql: true
+    generate-ddl: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+      use-new-id-generator-mappings: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        type: info
+        use_sql_comments: true
+        cache:
+          use_second_level_cache: false
+          use_query_cache: false
+#  jpa:
+#    hibernate:
+#      ddl-auto: validate  # 스키마 자동 생성
+#    show-sql: true      # SQL 쿼리 출력
+#    properties:
+#      hibernate:
+#        format_sql: true  # SQL pretty print
+#    database: mysql   # 추가 해준 부분
+#    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+contactMail: business@daquv.com
+download.path: "classpath:/download/"
+server:
+  port: 8000
+
+
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    driver-class-name: org.mariadb.jdbc.Driver
+#    url: jdbc:mariadb://3.39.167.244:3306/homepage?autoReconnect=True&useSSL=false&characterEncoding=UTF-8&serverTimezone=KST&allowPublicKeyRetrieval=true&useSSL=false
+#    username: daquv_master
+#    password: daquv123!
+    url: jdbc:mariadb://dev.daquv.com:3306/homepage?useSSL=false
+    username: admin
+    password: daquv123!*()
+    max-active: 5
+    max-idle: 5
+    min-idle: 1
+    test-while-idle: true
+    time-between-eviction-runs-millis: 60000
+    validation-query: SELECT 1
+  jpa:
+    database: mysql
+    show-sql: true
+    generate-ddl: false
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
+      use-new-id-generator-mappings: false
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        type: info
+        use_sql_comments: true
+        cache:
+          use_second_level_cache: false
+          use_query_cache: false
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true
+      multiline: true
+contactMail: business@daquv.com
+download.path: file:/home/daquv/Downloads/
+server:
+  port: 8000
+
+
+
+---
+# PROD
+spring:
+  config:
+    activate:
+      on-profile: prod
+  datasource:
+    type: org.apache.tomcat.jdbc.pool.DataSource
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://172.25.1.94:3306/homepage?autoReconnect=True&useSSL=false&characterEncoding=UTF-8&serverTimezone=KST&allowPublicKeyRetrieval=true&useSSL=false
+    username: cocktail_real
+    password: 1VBjDLolDS4B54H
+    connectionTimeout: 10000
+    idleTimeout: 10000
+    maxPoolSize: 10
+    maxLifetime: 300000
+    poolName: HikariCP
+    validationQuery: SELECT 1
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: false
+      multiline: false
+contactMail: business@daquv.com
+download.path: file:/home/ec2-user/download/
+server:
+  port: 8000
+
+
+---
+
+
+spring:
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: askavatardaquv@gmail.com
+    password: fkfcartpbzjyjhzr
+#    password: 1234!!!qwer
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+          auth: true
+
+logging:
+  level:
+    org.hibernate.type.descriptor.sql.BasicBinder: debug
+#    org.hibernate:
+#      type.descriptor.sql: debug #show parameter binding
+#      SQL: DEBUG
